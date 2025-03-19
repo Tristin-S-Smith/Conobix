@@ -104,8 +104,8 @@
 <p>To execute a Conobix program, run <em>conobix.py</em> and input the file path to your program.
 
 <h2>"Hello, World!" Example</h2>
-<div>
 <code>
+<div>
 `Program to output "Hello World"
 
 ~DEFENITION~
@@ -130,6 +130,5 @@
 ~EXECUTE~
 
 0/0/0
-
-</code>
 </div>
+</code>
