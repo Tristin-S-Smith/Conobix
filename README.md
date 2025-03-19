@@ -31,3 +31,43 @@
 <th> out[n]</th> <th>Output</th><th>Convert the value of the current Conobi to ASCII and output it n times</th>
 </tr>
 </table>
+
+<p>The <em>condition1-4</em> parameters will decide what direction the current Conobi will pass its data. Conditions 1-4 will pass data in the North, East, South, and West directions respecively. The conditions will also be checked in that order. The condition parameters will take a two-letter comparison and a value. The following comparisons are available:</p>
+
+<table>
+<tr>
+<th> Comparison</th> <th>Name</th><th>Description</th>
+</tr>
+<tr>
+<th> gt[n]</th> <th>Greater than</th><th>Check if the value of the current Conobi is greater than n</th>
+</tr>
+<tr>
+<th> lt[n]</th> <th>Less than</th><th>Check if the value of the current Conobi is less than n</th>
+</tr>
+<tr>
+<th> ge[n]</th> <th>Greater than or equal to</th><th>Check if the value of the current Conobi is greater than or equal to n</th>
+</tr>
+<tr>
+<th> le[n]</th> <th>Less than or equal to</th><th>Check if the value of the current Conobi is less than or equal to n</th>
+</tr>
+<tr>
+<th> eq[n]</th> <th>Equal to</th><th>Check if the value of the current Conobi is equal to n </th>
+</tr>
+<tr>
+<th> ne[n]</th> <th>Not equal to</th><th>Check if the value of the current Conobi is not equal to n</th>
+</tr>
+</table>
+
+<p>There are also two special comparisons available for the condition parameters. These comparisons do not take a value. They are as follows:</p>
+
+<table>
+<tr>
+<th> Comparison</th> <th>Name</th><th>Description</th>
+</tr>
+<tr>
+<th> ~</th> <th>Always false</th><th>Return false no matter what </th>
+</tr>
+<tr>
+<th> ?</th> <th>Always true</th><th>Return true no matter what</th>
+</tr>
+</table>
