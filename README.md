@@ -8,4 +8,26 @@
 
 <p>The <em>symbol</em> parameter is what the Conobi will be represented as. The <em>mutate</em> parameter is how the data passed to a Conobi is modified. The mutate parameter will take a three-letter operation and a value. The following operations are available:</p>
 
-
+<table>
+<tr>
+<th> Operation</th> <th>Name</th><th>Description</th>
+</tr>
+<tr>
+<th> add[n]</th> <th>Add</th><th>Add n to the value of the current Conobi </th>
+</tr>
+<tr>
+<th> sub[n]</th> <th>Subtract</th><th>Subtract n to the value of the current Conobi </th>
+</tr>
+<tr>
+<th> mul[n]</th> <th>Multiply</th><th>Multiply the value of the current Conobi by n </th>
+</tr>
+<tr>
+<th> div[n]</th> <th>Divide</th><th>Divide the value of the current Conobi by n </th>
+</tr>
+<tr>
+<th> exp[n]</th> <th>Exponent</th><th>Raise the value of the current Conobi to the n<sup>th</sup> power </th>
+</tr>
+<tr>
+<th> out[n]</th> <th>Output</th><th>Convert the value of the current Conobi to ASCII and output it n times</th>
+</tr>
+</table>
