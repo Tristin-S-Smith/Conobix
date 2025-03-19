@@ -100,8 +100,36 @@
 <p> A comment can be made in any section using ` at the start. It is crucial that comments are made on their own specific line. No instructions should come before or after the comment on the same line.</p>
 <code>`This is a comment</code>
 <p>It was mentioned previously that it might be a good idea to implement an all-false Conobi to halt the program if an out-of-bounds Conobi isn't easily accessible. The following is an example of an all-false Conobi:</p>
-<code>
-! | add0/~/~/~/~
-</code>
+<code>! | add0/~/~/~/~</code>
 <p>To execute a Conobix program, run <em>conobix.py</em> and input the file path to your program.
 
+<h2>"Hello, World!" Example</h2>
+<div>
+<code>
+`Program to output "Hello World"
+
+~DEFENITION~
+
+2 | out1/~/?/~/~
+1 | add72/~/?/~/~
+3 | add29/~/?/~/~
+4 | add7/~/?/~/~
+5 | out2/~/?/~/~
+6 | add3/~/?/~/~
+7 | sub67/~/?/~/~
+8 | sub35/~/?/~/~
+9 | add78/~/?/~/~
+! | add24/~/?/~/~
+@ | sub6/~/?/~/~
+# | sub8/~/?/~/~
+
+~SCHEMATIC~
+
+12324562728292!262@2#272
+
+~EXECUTE~
+
+0/0/0
+
+</code>
+</div>
