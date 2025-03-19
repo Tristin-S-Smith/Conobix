@@ -71,3 +71,7 @@
 <th> ?</th> <th>Always true</th><th>Return true no matter what</th>
 </tr>
 </table>
+
+<p>The following is an example of a Conobi represented by @. After it receives data, it will add 20 to it. Afterwards, the Conobi will compare its data to four conditions to determine what direction to send it. The Conobi will send the data North if it is equal to 16. It will never send the data East. It will send the data South if it is less than 4. If none of these conditions are met, it will always send the data West.</p>
+<code>~DEFINITION~
+@ | add20/eq16/~/lt4/?</code>
