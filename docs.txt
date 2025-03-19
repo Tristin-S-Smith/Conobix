@@ -1,0 +1,47 @@
+Conditional Object Matrix
+
+Conobix
+
+Program Layout:
+~DEFENITION~ to denote segment to define symbols
+~SCHEMATIC~ to denote where the program layout is
+~EXECUTE~ to denote data for execution
+These three MUST be present in every conobix program in this order
+Any statements before ~DEFINITION~ will be treated as config flags
+
+Use ` to denote a single line comment
+` This is a comment
+Comments MUST be on their own unique line
+
+Section-specific Instructions:
+~Definition~
+Conobi are symbols defined with a function to mutate data, and four conditionals to pass said data to another conobi
+A matrix of Conobi make a Conobix program
+A conobi is defined as such
+[symbol] | [mutate]/[N]/[E]/[S]/[W]
+The conditionals will pass the data in accordance to the order of NSEW
+The symbol may only be a single character
+Ex.
+@ | add1/gt100/nul/nul/nul/nul (Symbol @ will add 1 to passed data and pass it north if it is > 100, it will halt otherwise)
+
+add[n]
+sub[n]
+mul[n]
+div[n]
+
+exp[n]
+sqr[n]
+
+rnd[n]
+
+lt[n] <
+gt[n] >
+eq[n] ==
+le[n] <=
+ge[n] >=
+tr    true
+fl    false
+
+
+
+
