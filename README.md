@@ -84,7 +84,7 @@
 #$
 </code>
 <p>Keep in mind, the matrix can be any width and any height. Conobi within the matrix can also be reused as many times as desired.</p>
-<p>To terminate a Conobix program, either access a Conobi that is not defined within the matrix, or pass data to an all-false Conobi (passing data to a Conobi and having all four condition perameters return false will terminate the program).</p>
+<p>To terminate a Conobix program, either access a Conobi that is not defined within the matrix, or pass data to an all-false Conobi (passing data to a Conobi and having all four condition parameters return false will terminate the program).</p>
 
 <h2>Executing a Conobi Matrix</h2>
 <p>Where Conobix starts executing in the matrix, and the initial value to pass to the specified Conobi are defined in the <em>~EXECUTE~</em> section header. The arrangement for this data is:</p>
@@ -95,3 +95,13 @@
 <code>~EXECUTE~
 2/3/48
 </code>
+
+<h2>Misc. Functionality</h2>
+<p> A comment can be made in any section using ` at the start. It is crucial that comments are made on their own specific line. No instructions should come before or after the comment on the same line.</p>
+<code>`This is a comment</code>
+<p>It was mentioned previously that it might be a good idea to implement an all-false Conobi to halt the program if an out-of-bounds Conobi isn't easily accessible. The following is an example of an all-false Conobi:</p>
+<code>
+! | add0/~/~/~/~
+</code>
+<p>To execute a Conobix program, run <em>conobix.py</em> and input the file path to your program.
+
