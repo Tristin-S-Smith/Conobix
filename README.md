@@ -75,3 +75,23 @@
 <p>The following is an example of a Conobi represented by @. After it receives data, it will add 20 to it. Afterwards, the Conobi will compare its data to four conditions to determine what direction to send it. The Conobi will send the data North if it is equal to 16. It will never send the data East. It will send the data South if it is less than 4. If none of these conditions are met, it will always send the data West.</p>
 <code>~DEFINITION~
 @ | add20/eq16/~/lt4/?</code>
+
+<h2>Arranging Conobi</h2>
+<p>The layout of a Cobix program is not like that of you standard Imperative Programming Language. Instead, Conobi are arranged into a matrix under the <em>~SCHEMATIC~</em> section header. The position of defined Conobi in this matrix tie pack to the aforemention direction data is passed with the condition parameters. It is highly reccomended to create a matrix with an equal width and height, as well as fill any blank characters with a specified null character.</p>
+<p>Assuming !, @, #, and $ are defined Conobi, a valid matrix would look like:</p>
+<code>~SCHEMATIC~
+!@
+#$
+</code>
+<p>Keep in mind, the matrix can be any width and any height. Conobi within the matrix can also be reused as many times as desired.</p>
+<p>To terminate a Conobix program, either access a Conobi that is not defined within the matrix, or pass data to an all-false Conobi (passing data to a Conobi and having all four condition perameters return false will terminate the program).</p>
+
+<h2>Executing a Conobi Matrix</h2>
+<p>Where Conobix starts executing in the matrix, and the initial value to pass to the specified Conobi are defined in the <em>~EXECUTE~</em> section header. The arrangement for this data is:</p>
+<code>[x]/[y]/[data]</code>
+
+<p>The x and y parameters define the starting x and y values for the program. The data parameter stores any decimal value to be passed into the first Conobi.</p>
+<p>Telling the Conobix program to start at position (2,3) in the matrix with an initial data pass of 48 would resemble:</p>
+<code>~EXECUTE~
+2/3/48
+</code>
