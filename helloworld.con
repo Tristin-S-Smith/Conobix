@@ -1,4 +1,6 @@
-`Program to output "Hello World"
+`Program to output "Hello, World!"
+
+?NULLEXEC
 
 ~DEFENITION~
 
@@ -18,8 +20,4 @@
 ~SCHEMATIC~
 
 12324562728292!262@2#272
-
-~EXECUTE~
-
-0/0/0
 

@@ -1,0 +1,14 @@
+` Count to 100 and output all values along the way
+
+?NULLEXEC
+?STROUT
+?LNBRK
+
+~DEFENITION~
+
+! | out1/gt99/?/~/~
+@ | add1/~/~/~/?
+
+~SCHEMATIC~
+!@
+

@@ -7,8 +7,11 @@ tokens = [t for t in tokens if t[0] != "`"] #make the interpreter ignore any com
 #further split tokens based on section headers
 configTokens = tokens[:tokens.index("~DEFENITION~")]
 definitionTokens = tokens[tokens.index("~DEFENITION~") + 1 : tokens.index("~SCHEMATIC~")]
-schematicTokens = tokens[tokens.index("~SCHEMATIC~") + 1 : tokens.index("~EXECUTE~")]
-executeTokens = tokens[tokens.index("~EXECUTE~") + 1:]
+if "?NULLEXEC" in configTokens: #make ~EXECUTE~ not required in the case of ?NULLEXEC flag
+    schematicTokens = tokens[tokens.index("~SCHEMATIC~") + 1 :]
+else:
+    schematicTokens = tokens[tokens.index("~SCHEMATIC~") + 1 : tokens.index("~EXECUTE~")]
+    executeTokens = tokens[tokens.index("~EXECUTE~") + 1:]
 
 definitionTokens = [token.replace(" ", "") for token in definitionTokens]
 
@@ -17,7 +20,7 @@ conobi_dict = {}
 for i in definitionTokens:
     conobi_dict[i[0]] = i[2:].split('/') #further tokenize conobi definition
 
-executeTokens = [t for t in executeTokens[0].split("/")]
+executeTokens = [t for t in executeTokens[0].split("/")] if "?NULLEXEC" not in configTokens else []
 
 conobi_matrix = [list(i) for i in schematicTokens]
 
@@ -65,12 +68,19 @@ class header():
             # case "rot": doesnt work for some reason
             #     self.write(self.read_value() ** (1/self.modValue))
             case "out":
-                print(chr(self.read_value()) * self.modValue, end="")
+                if "?LNBRK" in configTokens: #apply newline flag
+                    self.ending = "\n"
+                else:
+                    self.ending = ""
+                if "?STROUT" in configTokens: #apply string output flag
+                    print(str(self.read_value()) * self.modValue, end=self.ending)
+                else:
+                    print(chr(self.read_value()) * self.modValue, end=self.ending)
         
     def understandCondition(self, condition): #tokenize contiion and return true or false
         if condition == "~":
             return False
-        if condition == "?":
+        elif condition == "?":
             return True
         self.condition_value = float(condition[2:])
         match condition[:2]:
@@ -86,32 +96,33 @@ class header():
                 return self.read_value() >= self.condition_value
             case "le":
                 return self.read_value() <= self.condition_value
-        
-    def evaluate(self): #check conditions and jump accordingy
+    
+    def passData(self, x, y):
+        self.tempval = self.read_value()
+        self.jump(x, y, True)
+        self.write(self.tempval)
+    
+    def evaluate(self): #check conditions and pass data
         self.conditionList = conobi_dict[conobi_matrix[self.pos_y][self.pos_x]][1:]
-        if self.understandCondition(self.conditionList[0]): #fix this awful elif tower eventually
-            self.tempval = self.read_value()
-            self.jump(0, 1, True)
-            self.write(self.tempval)
+        if self.understandCondition(self.conditionList[0]):
+            self.passData(0, 1)
         elif self.understandCondition(self.conditionList[1]):
-            self.tempval = self.read_value()
-            self.jump(1, 0, True)
-            self.write(self.tempval)
+            self.passData(1, 0)
         elif self.understandCondition(self.conditionList[2]):
-            self.tempval = self.read_value()
-            self.jump(0, -1, True)
-            self.write(self.tempval)
+            self.passData(0, -1)
         elif self.understandCondition(self.conditionList[3]):
-            self.tempval = self.read_value()
-            self.jump(-1, 0, True)
-            self.write(self.tempval)
+            self.passData(-1, 0)
         else:
             raise Exception("No codition of current Conobi returned true; halting program")
 
-
-head = header() #init header with ~EXECUTE~ parameters
-head.jump(executeTokens[0], executeTokens[1])
-head.write(executeTokens[2])
+if "?NULLEXEC" in configTokens:
+    head = header() #init header with 0/0/0
+    head.jump(0, 0)
+    head.write(0)
+else:
+    head = header() #init header with ~EXECUTE~ parameters
+    head.jump(executeTokens[0], executeTokens[1])
+    head.write(executeTokens[2])
 
 while True:
     try:

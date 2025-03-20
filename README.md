@@ -77,7 +77,7 @@
 @ | add20/eq16/~/lt4/?</code>
 
 <h2>Arranging Conobi</h2>
-<p>The layout of a Cobix program is not like that of you standard Imperative Programming Language. Instead, Conobi are arranged into a matrix under the <em>~SCHEMATIC~</em> section header. The position of defined Conobi in this matrix tie pack to the aforemention direction data is passed with the condition parameters. It is highly reccomended to create a matrix with an equal width and height, as well as fill any blank characters with a specified null character.</p>
+<p>The layout of a Cobix program is not like that of your standard Imperative Programming Language. Instead, Conobi are arranged into a matrix under the <em>~SCHEMATIC~</em> section header. The position of defined Conobi in this matrix tie pack to the aforemention direction data is passed with the condition parameters. It is highly reccomended to create a matrix with an equal width and height, as well as fill any blank characters with a specified null character.</p>
 <p>Assuming !, @, #, and $ are defined Conobi, a valid matrix would look like:</p>
 <code>~SCHEMATIC~
 !@
@@ -95,6 +95,30 @@
 <code>~EXECUTE~
 2/3/48
 </code>
+
+<h2>Program Flags</h2>
+<p>Program Flags are specific rules set at the beginning of a Conobix program that will change the functionality of the Conobix interpreter itself. Program flags are denoted by a <em>?</em>, and they can be placed anywhere before the <em>~DEFINE</em> section header. They are defined as follows:</p>
+<code>
+?[flag]
+~DEFINE~
+</code>
+<p> The <em>flag</em> parameter specifies which flag will be set. The following flags are available:</p>
+
+<table>
+<tr>
+<th> Flag</th> <th>Name</th><th>Description</th>
+</tr>
+<tr>
+<th> NULLEXEC</th> <th>Null execution</th><th> Execute the program with both the starting coordinates and the starting value set to 0. When this flag is present, neither <em>~EXECUTE~</em> nor the content under it will need to be in the program. If it is present, it will be ignored in favor of 0/0/0.</th>
+</tr>
+<tr>
+<th> STROUT</th> <th>String out</th><th>Modify the behavior of the <em>out[n]</em> mutate parameter to output the actual number within its Conobi rather than converting the number to ASCII and outputting it.</th>
+</tr>
+<tr>
+<th> LNBRK</th> <th>Line break</th><th>Modify the behavior of the <em>out[n]</em> mutate parameter to output on a new line each time it is called instead of outputting everything on the same line.</th>
+</tr>
+</table>
+
 
 <h2>Misc. Functionality</h2>
 <p> A comment can be made in any section using ` at the start. It is crucial that comments are made on their own specific line. No instructions should come before or after the comment on the same line.</p>
