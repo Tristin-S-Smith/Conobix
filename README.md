@@ -33,7 +33,7 @@
 <th> out[n]</th> <th>Output</th><th>Convert the value of the current Conobi to ASCII and output it n times</th>
 </tr>
 </table>
-<p></p>
+<br>
 
 <p>The <em>condition1-4</em> parameters will decide what direction the current Conobi will pass its data. Conditions 1-4 will pass data in the North, East, South, and West directions respecively. The conditions will also be checked in that order. The condition parameters will take a two-letter comparison and a value. The following comparisons are available:</p>
 
@@ -60,7 +60,7 @@
 <th> ne[n]</th> <th>Not equal to</th><th>Check if the value of the current Conobi is not equal to n</th>
 </tr>
 </table>
-<p></p>
+<br>
 
 <p>There are also two special comparisons available for the condition parameters. These comparisons do not take a value. They are as follows:</p>
 
@@ -75,7 +75,7 @@
 <th> ?</th> <th>Always true</th><th>Return true no matter what</th>
 </tr>
 </table>
-<p></p>
+<br>
 
 <p>The following is an example of a Conobi represented by @. After it receives data, it will add 20 to it. Afterwards, the Conobi will compare its data to four conditions to determine what direction to send it. The Conobi will send the data North if it is equal to 16. It will never send the data East. It will send the data South if it is less than 4. If none of these conditions are met, it will always send the data West.</p>
 <code>~DEFINITION~
@@ -108,6 +108,7 @@
 <code>?[flag]
 ~DEFINE~
 </code>
+<p></p>
 <p> The <em>flag</em> parameter specifies which flag will be set. The following flags are available:</p>
 
 <table>
@@ -124,6 +125,7 @@
 <th> LNBRK</th> <th>Line break</th><th>Modify the behavior of the <em>out[n]</em> mutate parameter to output on a new line each time it is called instead of outputting everything on the same line.</th>
 </tr>
 </table>
+<br>
 
 
 <h2>Misc. Functionality</h2>
