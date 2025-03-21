@@ -5,6 +5,7 @@
 <h2>Defining Conobi</h2>
 <p>Conobix is a language that is split into chunks by section headers. All Conobi are defined under the <em>~DEFINE~</em> section header. They are defined as follows:</p>
 <code>[symbol] | [mutate]/[condition1]/[condition2]/[condition3]/[condition4]</code>
+<br>
 
 <p>The <em>symbol</em> parameter is what the Conobi will be represented as. The <em>mutate</em> parameter is how the data passed to a Conobi is modified. The mutate parameter will take a three-letter operation and a value. The following operations are available:</p>
 
@@ -31,6 +32,7 @@
 <th> out[n]</th> <th>Output</th><th>Convert the value of the current Conobi to ASCII and output it n times</th>
 </tr>
 </table>
+<br>
 
 <p>The <em>condition1-4</em> parameters will decide what direction the current Conobi will pass its data. Conditions 1-4 will pass data in the North, East, South, and West directions respecively. The conditions will also be checked in that order. The condition parameters will take a two-letter comparison and a value. The following comparisons are available:</p>
 
@@ -57,6 +59,7 @@
 <th> ne[n]</th> <th>Not equal to</th><th>Check if the value of the current Conobi is not equal to n</th>
 </tr>
 </table>
+<br>
 
 <p>There are also two special comparisons available for the condition parameters. These comparisons do not take a value. They are as follows:</p>
 
@@ -71,6 +74,7 @@
 <th> ?</th> <th>Always true</th><th>Return true no matter what</th>
 </tr>
 </table>
+<br>
 
 <p>The following is an example of a Conobi represented by @. After it receives data, it will add 20 to it. Afterwards, the Conobi will compare its data to four conditions to determine what direction to send it. The Conobi will send the data North if it is equal to 16. It will never send the data East. It will send the data South if it is less than 4. If none of these conditions are met, it will always send the data West.</p>
 <code>~DEFINITION~
@@ -83,12 +87,14 @@
 !@
 #$
 </code>
+<br>
 <p>Keep in mind, the matrix can be any width and any height. Conobi within the matrix can also be reused as many times as desired.</p>
 <p>To terminate a Conobix program, either access a Conobi that is not defined within the matrix, or pass data to an all-false Conobi (passing data to a Conobi and having all four condition parameters return false will terminate the program).</p>
 
 <h2>Executing a Conobi Matrix</h2>
 <p>Where Conobix starts executing in the matrix, and the initial value to pass to the specified Conobi are defined in the <em>~EXECUTE~</em> section header. The arrangement for this data is:</p>
 <code>[x]/[y]/[data]</code>
+<br>
 
 <p>The x and y parameters define the starting x and y values for the program. The data parameter stores any decimal value to be passed into the first Conobi.</p>
 <p>Telling the Conobix program to start at position (2,3) in the matrix with an initial data pass of 48 would resemble:</p>
@@ -97,9 +103,8 @@
 </code>
 
 <h2>Program Flags</h2>
-<p>Program Flags are specific rules set at the beginning of a Conobix program that will change the functionality of the Conobix interpreter itself. Program flags are denoted by a <em>?</em>, and they can be placed anywhere before the <em>~DEFINE</em> section header. They are defined as follows:</p>
-<code>
-?[flag]
+<p>Program Flags are specific rules set at the beginning of a Conobix program that will change the functionality of the Conobix interpreter itself. Program flags are denoted by a <em>?</em>, and they can be placed anywhere before the <em>~DEFINE~</em> section header. They are defined as follows:</p>
+<code>?[flag]
 ~DEFINE~
 </code>
 <p> The <em>flag</em> parameter specifies which flag will be set. The following flags are available:</p>
@@ -123,7 +128,9 @@
 <h2>Misc. Functionality</h2>
 <p> A comment can be made in any section using ` at the start. It is crucial that comments are made on their own specific line. No instructions should come before or after the comment on the same line.</p>
 <code>`This is a comment</code>
+<br>
 <p>It was mentioned previously that it might be a good idea to implement an all-false Conobi to halt the program if an out-of-bounds Conobi isn't easily accessible. The following is an example of an all-false Conobi:</p>
 <code>! | add0/~/~/~/~</code>
+<br>
 <p>To execute a Conobix program, run <em>conobix.py</em> and input the file path to your program.
 
