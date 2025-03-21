@@ -6,7 +6,6 @@
 <p>Conobix is a language that is split into chunks by section headers. All Conobi are defined under the <em>~DEFINE~</em> section header. They are defined as follows:</p>
 <code>[symbol] | [mutate]/[condition1]/[condition2]/[condition3]/[condition4]</code>
 <p></p>
-<!-- Why can't you let me use <br /> like a normal person, markdown? -->
 
 <p>The <em>symbol</em> parameter is what the Conobi will be represented as. The <em>mutate</em> parameter is how the data passed to a Conobi is modified. The mutate parameter will take a three-letter operation and a value. The following operations are available:</p>
 
@@ -125,7 +124,6 @@
 <th> LNBRK</th> <th>Line break</th><th>Modify the behavior of the <em>out[n]</em> mutate parameter to output on a new line each time it is called instead of outputting everything on the same line.</th>
 </tr>
 </table>
-<br>
 
 
 <h2>Misc. Functionality</h2>
