@@ -131,6 +131,6 @@
 <br>
 <p>It was mentioned previously that it might be a good idea to implement an all-false Conobi to halt the program if an out-of-bounds Conobi isn't easily accessible. The following is an example of an all-false Conobi:</p>
 <code>! | add0/~/~/~/~</code>
-<br>
+<p></p>
 <p>To execute a Conobix program, run <em>conobix.py</em> and input the file path to your program.
 
